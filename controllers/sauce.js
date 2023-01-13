@@ -2,6 +2,7 @@ const Sauce = require('../models/sauce');
 
 //Permet de modifier le système de fichiers
 const fs = require('fs');
+
 const jwt = require('jsonwebtoken');
 
 
@@ -10,7 +11,7 @@ exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     //Suppression de l'_id envoyé par le front-end
     delete sauceObject._id;
-    //Conversion de l'objet "Sauce" en une chaîne "sauce"
+    
     const sauce = new Sauce({
         ...sauceObject,
         //Utilisation de l'URL complète de l'image
