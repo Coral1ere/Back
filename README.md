@@ -1,4 +1,8 @@
 HotTakes
+
+Link to project repo:
+https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
+
 This project was generated with Angular CLI version 13.2.4.
 
 Development server
@@ -20,6 +24,10 @@ Further help
 To get more help on the Angular CLI use ng help or go check out the Angular CLI Overview and Command Reference page.
 *********************************************************************************************************************************************************
 HotTakes
+
+Lien vers le repo du projet:
+https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
+
 Ce projet a été généré avec Angular CLI version 13.2.4.
 
 Serveur de développement
