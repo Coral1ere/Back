@@ -12,10 +12,6 @@ const db_utilisateur = properties.get("db_utilisateur");
 
 const uri = `mongodb+srv://${db_utilisateur}:${db_mdp}@projet6.iygzfqo.mongodb.net/?retryWrites=true&w=majority`
 
-// A utiliser uniquement en développement 
-//console.log("uri: " + uri);
-
-
 mongoose.set('strictQuery', false)
 
 //connexion à la base de données

@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 exports.signup = (req, res, next) => {
-    //Appelle de bcrypt qui hashe le mot de passe 10 fois ici et renvoie une promise
+    //Appel de bcrypt qui hashe le mot de passe 10 fois et renvoie une promise
     bcrypt.hash(req.body.password, 10)
     .then(hash => {
         const user = new User({

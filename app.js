@@ -10,6 +10,26 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
+// Helmet sécurise les entêtes HTTP
+const helmet = require("helmet");
+
+// Atténue les attaques de script intersite
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+    },
+  })
+);
+
+// Améliore la confidentialité des utilisateurs
+app.use(
+  helmet.dnsPrefetchControl({
+    allow: true,
+  })
+ );
+
 app.use((req, res, next) => {
     //Toutes les origines peuvent accéder à l'API
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,5 +48,8 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //Route de base commune aux sauces ou à l'authentification
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
+
+//Les intrus peuvent utiliser cet en-tête (activé par défaut) afin de détecter les applications qui exécutent Express et lancer ensuite des attaques spécifiquement ciblées.
+app.disable('x-powered-by');
 
 module.exports = app;
